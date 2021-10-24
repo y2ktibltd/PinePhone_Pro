@@ -6,4 +6,5 @@ xz -d -v archlinux-pinephone-barebone-20211022.img.xz
 
 sudo dd if=/home/tom/Downloads/archlinux-pinephone-barebone-20211022.img of=/dev/sda status=progress && sync
 
-wget https://github.com/y2ktibltd/PinePhone/blob/main/Arch/setup.sh && chmod +x setup.sh
+curl https://github.com/y2ktibltd/PinePhone/blob/main/Arch/setup.sh>~/setup.sh && chmod +x setup.sh && sudo ./setup.sh
+
