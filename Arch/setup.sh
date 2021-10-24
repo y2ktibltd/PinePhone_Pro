@@ -4,7 +4,7 @@ read user
 useradd -mG wheel $user
 echo -e $user:$user | chpasswd
 
-pacman -Syu --noconfirm tmux gdb clang #curl vim nano htop base-devel git curl cmake python-setuptools xorg xterm
+pacman -Syu --noconfirm tmux gdb clang curl vim nano htop base-devel git curl cmake python-setuptools xorg xterm
 
 git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
 chown -R $user:$user /opt/yay-git
