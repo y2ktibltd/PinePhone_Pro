@@ -31,9 +31,8 @@ set incsearch
 highlight ColorColumn ctermbg=0 guibg=black
 
 call plug#begin()
-Plug 'jpalardy/vim-slime', { 'for':['python','julia']}
-Plug 'hanschen/vim-ipython-cell',{ 'for':['python','julia']}
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'jpalardy/vim-slime', { 'for':['python']}
+Plug 'hanschen/vim-ipython-cell',{ 'for':['python']}
 Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
@@ -41,5 +40,6 @@ Plug 'vim-utils/vim-man'
 call plug#end()""" > /home/$user/.vimrc
 sudo -S -u $user vim -c :PlugInstall +qall
 pkexec --user $user /home/$user/.vim/plugged/YouCompleteMe/install.py
+
 sudo passwd -l alarm
 sudo reboot
