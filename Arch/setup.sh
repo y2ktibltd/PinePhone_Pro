@@ -8,7 +8,7 @@ git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
 chown -R $user:$user /opt/yay-git
 cd /opt/yay-git
 echo "y" | sudo -S -u $user makepkg -si
-sudo -S -u $user yay -S --noconfirm qtile
+echo $user | sudo -S -u $user yay -S --noconfirm qtile
 sudo -S -u $user echo "alias ll='ls -lah --color=auto'">>/home/$user/.bashrc
 sudo -S -u $user curl -fLo /home/$user/.vim/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
