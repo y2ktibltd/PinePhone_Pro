@@ -41,3 +41,5 @@ Plug 'vim-utils/vim-man'
 call plug#end()""" > /home/$user/.vimrc
 sudo -S -u $user vim -c :PlugInstall +qall
 pkexec --user $user /home/$user/.vim/plugged/YouCompleteMe/install.py
+sudo passwd -l alarm
+sudo reboot
