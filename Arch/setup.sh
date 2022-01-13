@@ -34,7 +34,7 @@ call plug#begin()
 Plug 'jpalardy/vim-slime', { 'for':['python']}
 Plug 'hanschen/vim-ipython-cell',{ 'for':['python']}
 Plug 'morhetz/gruvbox'
-Plug 'Valloric/YouCompleteMe'
+Plug 'davidhalter/jedi-vim'
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 call plug#end()""" > /home/$user/.vimrc
