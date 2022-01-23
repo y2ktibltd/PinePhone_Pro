@@ -13,7 +13,6 @@ sudo -S -u $user echo "alias ll='ls -lah --color=auto'">>/home/$user/.bashrc
 sudo -S -u $user curl -fLo /home/$user/.vim/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sudo -S -u $user echo """syntax on
-
 set nu
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -27,9 +26,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-
 highlight ColorColumn ctermbg=0 guibg=black
-
 call plug#begin()
 Plug 'jpalardy/vim-slime', { 'for':['python']}
 Plug 'hanschen/vim-ipython-cell',{ 'for':['python']}
@@ -39,7 +36,6 @@ Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 call plug#end()""" > /home/$user/.vimrc
 sudo -S -u $user vim -c :PlugInstall +qall
-pkexec --user $user /home/$user/.vim/plugged/YouCompleteMe/install.py
 sudo sed -i "/PermitRootLogin/c\PermitRootLogin no" /etc/ssh/sshd_config
 sudo passwd -l alarm
 sudo reboot
