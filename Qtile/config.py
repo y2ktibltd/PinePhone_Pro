@@ -26,15 +26,22 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, qtile, extension
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "xterm"
+browser="chromium --use-gl=egl"
+background="~/Wallpapers/howl_castle.png"
+background_mode="fill"
+dmenu_icon="~/Icons/Python.png"
 
 keys = [
+    # A list of available commands that can be bound to keys can be found
+    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -72,17 +79,21 @@ keys = [
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
+    # control audio
+    #Key([mod, "Control"], "Up",lazy.spawn("amixer set Master 5%+")),
+    #Key([mod, "Control"], "Down",lazy.spawn("amixer set Master 5%-")),
+    #Key([mod, "Control"], "space",lazy.spawn("amixer set Master toggle")),
+
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod], "c", lazy.spawn(browser),desc="Launch browser"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
-]
+    Key([mod], "r", lazy.spawncmd(),desc="Spawn a command using a prompt widget"),
+    ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "123"]
 
 for i in groups:
     keys.extend([
@@ -100,8 +111,8 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
-    layout.Max(),
+    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=3, margin=7),
+    # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -110,7 +121,7 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
+     layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -118,31 +129,47 @@ layouts = [
 widget_defaults = dict(
     font='sans',
     fontsize=12,
-    padding=3,
+    padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper=background,
+        wallpaper_mode=background_mode,
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
+                widget.Image(
+                    filename = dmenu_icon,
+                    mouse_callbacks = {'Button1':lambda: qtile.cmd_spawn('ulauncher')},
+                    ),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.CurrentLayoutIcon(markup=True),
+                widget.WindowName(markup=True),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.Sep(),
+                widget.Volume(markup=True),
+                widget.Sep(),
+                widget.CPUGraph(
+                    core = 'all',
+                    fill_color = 'ff0000',
+                    graph_color = 'ff0000',
+                    samples = 100,
+                    mouse_callbacks = {'Button1':lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                    ),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                widget.Clock(format='%a %I:%M %p'),
             ],
             24,
+            border_width=[3,3,3,3],  # Draw top and bottom borders
+            margin=[0,10,5,10], # Give borders to Bar
+            border_color=["000000", "000000", "000000", "000000"]  # Borders are magenta
         ),
     ),
 ]
