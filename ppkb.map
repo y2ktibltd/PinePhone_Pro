@@ -1,0 +1,14 @@
+strings as usual
+compose as usual for "iso-8859-1"
+keymaps 0-63
+
+plain keycode 125 = ShiftR
+ShiftR keycode 125 = ShiftR
+ShiftR keycode 0x02 = bar
+ShiftR keycode 0x03 = backslash
+ShiftR keycode 0x06 = asciitilde
+ShiftR keycode 0x07 = grave
+ShiftR keycode 0x08 = minus
+ShiftR keycode 0x09 = equal
+ShiftR keycode 0x0a = underscore
+ShiftR keycode 0x0b = plus
