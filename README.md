@@ -8,7 +8,8 @@
  add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
     
 # Enable Sun12X12 font in fbconsole
-    sudo echo "FONT=sunx12x22" > /etc/vconsole.conf
+    sudo curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map
+    sudo echo "FONT=sunx12x22\nKEYMAP=/usr/share/kbd/keymaps/ppkb.map" > /etc/vconsole.conf
     
 # install yay
     pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
