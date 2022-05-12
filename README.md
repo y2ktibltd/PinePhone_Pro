@@ -1,5 +1,7 @@
-# Rotate display for use with keyboard
+# Setup wireless
+sudo nmtui
 
+# Rotate display for use with keyboard
 add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
 
 # install yay
