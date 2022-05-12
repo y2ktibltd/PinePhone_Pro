@@ -1,14 +1,21 @@
 # Setup wireless
-sudo nmtui
+    sudo nmtui
 
 # Rotate display for use with keyboard
-add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
-
+ add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
+    
+# Enable Sun12X12 font in fbconsole
+    sudo echo "FONT=sunx12x22" > /etc/vconsole.conf
+    
 # install yay
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+    pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # configure vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl https://raw.githubusercontent.com/y2ktibltd/Vimrc-config/main/.vimrc > ~/.vimrc
-  run vim then :PlugInstall
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
+    curl https://raw.githubusercontent.com/y2ktibltd/Vimrc-config/main/.vimrc > ~/.vimrc;
+    vim -c :PlugInstall
 
+
+
+# configure keyboard driver
+    
