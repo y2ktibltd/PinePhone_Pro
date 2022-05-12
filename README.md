@@ -1,4 +1,4 @@
-# PinePhone_Pro
+# Rotate display for use with keyboard
 
 add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
 
