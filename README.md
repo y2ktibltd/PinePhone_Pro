@@ -1,6 +1,9 @@
 # Setup wireless
     sudo nmtui
 
+# install keyboard driver
+    sudo pacman -Syu ppkb-tools
+    
 # Rotate display for use with keyboard
  add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
     
@@ -15,7 +18,3 @@
     curl https://raw.githubusercontent.com/y2ktibltd/Vimrc-config/main/.vimrc > ~/.vimrc;
     vim -c :PlugInstall
 
-
-
-# configure keyboard driver
-    
