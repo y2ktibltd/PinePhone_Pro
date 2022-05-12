@@ -10,7 +10,10 @@
     
 # Enable Sun12X12 font in fbconsole
     sudo echo "FONT=sunx12x22\nKEYMAP=/usr/share/kbd/keymaps/ppkb.map" > /etc/vconsole.conf
-    
+
+# Enable battery status in bash prompt
+    sudo curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/.bashrc > ~/.bashrc
+
 # install yay
     pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
