@@ -2,13 +2,12 @@
     sudo nmtui
 
 # install keyboard driver
-    sudo pacman -Syu ppkb-tools
+    sudo pacman -Syu ppkb-tools;sudo curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map
     
 # Rotate display for use with keyboard
  add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
     
 # Enable Sun12X12 font in fbconsole
-    sudo curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map
     sudo echo "FONT=sunx12x22\nKEYMAP=/usr/share/kbd/keymaps/ppkb.map" > /etc/vconsole.conf
     
 # install yay
