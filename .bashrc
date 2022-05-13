@@ -101,5 +101,4 @@ kbbattery_status(){
 
  echo -e "${COLOUR}${CHARGE}%${NON} ${BATSTT}"
 }
-
-PS1='P$(ppbattery_status)K$(kbbattery_status)[\u@\h \W]\$ '
+PS1='P$(ppbattery_status)K$(kbbattery_status)\n[\u@\h \W]\$'
