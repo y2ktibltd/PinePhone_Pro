@@ -22,5 +22,5 @@
     curl https://raw.githubusercontent.com/y2ktibltd/Vimrc-config/main/.vimrc > ~/.vimrc;
     vim -c :PlugInstall
 
-# change input curent limit for charging on PinePhone Pro USB C from Keyboard
+# change input curent limit on Phone USB
     sudo bash -c "echo 1500000 > /sys/class/power_supply/rk818-usb/input_current_limit"
