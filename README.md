@@ -14,7 +14,7 @@
     curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/.bashrc > ~/.bashrc
 
 # install software
-    sudo pacman -S --needed git ppkb-tools vim base-devel curl htop tmux neofetch xorg xorg-xinit && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+    sudo pacman -S --needed git ppkb-tools vim base-devel curl htop tmux neofetch locate xorg xorg-xinit && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # configure vim
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
