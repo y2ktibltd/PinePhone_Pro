@@ -24,6 +24,6 @@
 # change power button function
     sudo vim /etc/systemd/logind.conf   -> change HandlePowerKey=suspend
 
-# install xorg and gpu drivers?
-    sudo pacman -Syu xorg xorg-xinit mali-bifrost-g31-libgl-x11-gbm qtile terminus-font
+# install xorg
+    sudo pacman -Syu xorg xorg-xinit
     
