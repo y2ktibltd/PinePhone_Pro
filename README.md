@@ -11,7 +11,7 @@
  add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
     
 # Enable Sun12X12 font in fbconsole
-    sudo echo "FONT=sun12x22\nKEYMAP=/usr/share/kbd/keymaps/ppkb.map" > /etc/vconsole.conf
+    sudo bash -c "echo "FONT=sun12x22\nKEYMAP=/usr/share/kbd/keymaps/ppkb.map" > /etc/vconsole.conf"
 
 # Enable battery status in bash prompt
     curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/.bashrc > ~/.bashrc
