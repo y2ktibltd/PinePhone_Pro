@@ -2,7 +2,7 @@
     sudo nmtui
 
 # install keyboard driver and misc software
-    sudo pacman -Syu ppkb-tools vim base-devel git curl htop tmux neofetch
+    sudo pacman -Syu ppkb-tools vim base-devel git curl htop tmux neofetch xorg xorg-xinit
     
 # Configure keyboard mapping for tty
     sudo bash -c "curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map"
@@ -25,7 +25,3 @@
 
 # change power button function
     sudo vim /etc/systemd/logind.conf   -> change HandlePowerKey=suspend
-
-# install xorg
-    sudo pacman -Syu xorg xorg-xinit
-    
