@@ -1,8 +1,5 @@
 # Setup wireless
     sudo nmtui
-
-# install keyboard driver and misc software
-    sudo pacman -Syu ppkb-tools vim base-devel git curl htop tmux neofetch xorg xorg-xinit
     
 # Configure keyboard mapping for tty
     sudo bash -c "curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map"
@@ -16,7 +13,7 @@
 # Enable battery status in bash prompt
     curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/.bashrc > ~/.bashrc
 
-# install yay
+# install software
     sudo pacman -S --needed git ppkb-tools vim base-devel curl htop tmux neofetch xorg xorg-xinit && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # configure vim
