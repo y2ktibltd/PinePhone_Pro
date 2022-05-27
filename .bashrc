@@ -103,4 +103,3 @@ kbbattery_status(){
 }
 PS1='P$(ppbattery_status)K$(kbbattery_status)\n[\u@\h \W]\$'
 neofetch
-sudo bash -c "echo 1500000 > /sys/class/power_supply/rk818-usb/input_current_limit"
