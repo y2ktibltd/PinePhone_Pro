@@ -1,8 +1,10 @@
 # Setup wireless
     sudo nmtui
 
-# install keyboard driver
-    sudo pacman -Syu ppkb-tools;
+# install keyboard driver and misc software
+    sudo pacman -Syu ppkb-tools vim base-devel git curl htop tmux neofetch
+    
+# Configure keyboard mapping for tty
     sudo bash -c "curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map"
     
 # Rotate display for use with keyboard
