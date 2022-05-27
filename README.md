@@ -3,7 +3,7 @@
 
 # install keyboard driver
     sudo pacman -Syu ppkb-tools;
-    sudo curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map
+    sudo bash -c "curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/ppkb.map > /usr/share/kbd/keymaps/ppkb.map"
     
 # Rotate display for use with keyboard
  add "fbcon=rotate:1" to end of setenv list on /boot/boot.txt
