@@ -15,6 +15,9 @@
     
 # Download usb_fix.sh
     curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/usb_charge_fix.sh > ~/usb_fix.sh
+    
+# download .xinitrc
+    curl https://raw.githubusercontent.com/y2ktibltd/PinePhone_Pro/main/.xinitrc > ~/.xinitrc
 
 # install software
     sudo pacman -S --needed git ppkb-tools vim base-devel curl htop tmux neofetch locate xorg xorg-xinit && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
