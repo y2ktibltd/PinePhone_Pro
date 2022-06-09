@@ -1,7 +1,6 @@
 syntax on
 
 set encoding=utf-8
-set mouse:a
 set nu
 set showmatch
 set tabstop=4 softtabstop=4
@@ -19,9 +18,45 @@ map <F8> :call RunCode()<CR>
 call plug#begin()
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'preservim/nerdtree'
+    Plug 'wfxr/minimap.vim'
 call plug#end()
 
+let g:NERDTreeWinSize=15
+
+let g:minimap_width=15
+let g:minimap_auto_start=1
+let g:minimap_highlight_range=1
+let g:minimap_highlight_search=1
+
+let g:minimap_close_filetypes=['startify', 'netrw', 'vim-plug']
+let g:minimap_block_buftypes=['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt']
+let g:minimap_block_filetypes=['fugitive', 'nerdtree', 'tagbar']
+
+function! CheckLeftBuffers()
+  if tabpagenr('$') == 1
+    let i = 1
+    while i <= winnr('$')
+      if getbufvar(winbufnr(i), '&buftype') == 'help' ||
+          \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
+          \ exists('t:NERDTreeBufName') &&
+          \ bufname(winbufnr(i)) == t:NERDTreeBufName ||
+          \ bufname(winbufnr(i)) == '__Tag_List__' ||
+          \ bufname(winbufnr(i)) == '-MINIMAP-'
+        let i += 1
+      else
+        break
+      endif
+    endwhile
+    if i == winnr('$') + 1
+      qall
+    endif
+    unlet i
+  endif
+endfunction
+autocmd BufEnter * call CheckLeftBuffers()
+
 autocmd vimenter * NERDTree | wincmd p
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 colorscheme dracula 
