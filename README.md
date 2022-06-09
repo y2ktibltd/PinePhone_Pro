@@ -1,3 +1,5 @@
+QTILE SETUP
+
 # Setup wireless
     sudo nmtui
     
